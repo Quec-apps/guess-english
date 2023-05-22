@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script src="res/script/jquery.min.js"></script>
+	<meta name="viewport" content="initial-scale=2, maximum-scale=1.0, user-scalable=no" />
+	<style>
+		@font-face {
+			font-family: "Rubik";
+			src: url(res/fonts/Roboto-Medium.ttf);
+		}
+
+		html {
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+		}
+
+		body {
+			margin: 0;
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+			background: radial-gradient(100% 225% at 100% 0%, #FAFF00 0%, #000000 100%), linear-gradient(235deg, #DB00FF 0%, #000000 100%), linear-gradient(45deg, #241E92 0%, #241E92 40%, #5432D3 40%, #5432D3 50%, #7B6CF6 50%, #7B6CF6 70%, #E5A5FF 70%, #E5A5FF 100%), linear-gradient(180deg, #01024E 0%, #01024E 43%, #543864 43%, #543864 62%, #8B4367 62%, #8B4367 80%, #FF6464 80%, #FF6464 100%);
+			background-blend-mode: overlay, hard-light, overlay, normal;
+			font-family: Rubik;
+			padding-bottom: 10vw;
+			color: white;
+			user-select: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+		}
+
+		.wait_update_con {
+			width: 100vw;
+			height: 100vh;
+			z-index: 100;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, .5);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: .4s ease;
+			animation: wait_update .4s ease 1;
+		}
+
+		@keyframes wait_update {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.wait_update {
+			width: 85vw;
+			border-radius: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			padding: 3vh 3vw;
+			transition: .3s ease;
+			animation: wait .3s ease 1;
+			position: relative;
+		}
+
+		.for-blur {
+			width: 100%;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.289);
+			border-radius: 10px;
+			backdrop-filter: blur(7px);
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+
+		@keyframes wait {
+			0% {
+				opacity: 0;
+				transform: scale(0);
+			}
+
+			100% {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+
+		.wait_update_txt {
+			width: 100%;
+			text-align: center;
+			font-size: larger;
+		}
+
+		.wait-update-close {
+			margin: 10px 10vw 0vh 10vw;
+			width: 55px;
+			background-color: white;
+			border-radius: 10px;
+		}
+
+		.wait-update-close:active {
+			transform: scale(.8);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wait_update_con">
+		<div class="wait_update">
+			<div class="for-blur"></div>
+			<div class="wait_update_txt">You have completed the levels.<br />Please wait for new updates.</div>
+			<img src="res/image/ok.webp" class="wait-update-close">
+		</div>
+	</div>
+	<audio id="button2" src="res/audio/button2.mp3"></audio>
+	<script>
+		$('.wait-update-close').click(function () {
+			document.getElementById("button2").play();
+			$('.wait_update').css({ transform: 'scale(0)', opacity: '0' });
+			$('.wait_update_con').css({ opacity: '0' });
+			setTimeout(function () {
+				window.history.back();
+			}, 300);
+		});
+	</script>
+</body>
+
+</html>
