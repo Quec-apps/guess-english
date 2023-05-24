@@ -14,8 +14,8 @@ body {
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
-	background: radial-gradient(100% 225% at 100% 0%, #FAFF00 0%, #000000 100%), linear-gradient(235deg, #DB00FF 0%, #000000 100%), linear-gradient(45deg, #241E92 0%, #241E92 40%, #5432D3 40%, #5432D3 50%, #7B6CF6 50%, #7B6CF6 70%, #E5A5FF 70%, #E5A5FF 100%), linear-gradient(180deg, #01024E 0%, #01024E 43%, #543864 43%, #543864 62%, #8B4367 62%, #8B4367 80%, #FF6464 80%, #FF6464 100%);
-	background-blend-mode: overlay, hard-light, overlay, normal;
+	background: radial-gradient(65% 100% at 50% 0%, #18005B 0%, #000000 100%), radial-gradient(circle at 30% 45%, #FF0000 0%, #FF0000 5%, #FFFF00 5%, #FFFF00 10%, #00FF00 10%, #00FF00 15%, #00FFFF 15%, #00FFFF 20%, #0000FF 20%, #0000FF 30%, #FF00FF 30%, #FF00FF 40%, #FF0000 40%), radial-gradient(circle at 50% 0%, #FF0000 0%, #FF0000 5%, #FFFF00 5%, #FFFF00 10%, #00FF00 10%, #00FF00 20%, #00FFFF 20%, #00FFFF 30%, #0000FF 30%, #0000FF 40%, #FF00FF 40%, #FF00FF 50%, #FF0000 50%), conic-gradient(from 15deg at 20% 420%, #FF0000 0deg, #FF0000 55deg, #FFFF00 60deg, #FFFF00 120deg, #00FF00 120deg, #00FF00 180deg, #00FFFF 180deg, #00FFFF 240deg, #0000FF 240deg, #0000FF 300deg, #FF00FF 310deg, #FF00FF 360deg, #FF0000 360deg);
+	background-blend-mode: screen, multiply, multiply, normal;
 	font-weight: 1000;
 	text-align: center;
 	font-family: Rubik;
@@ -44,19 +44,24 @@ body {
 	flex-wrap: wrap;
 	justify-content: space-around;
 	animation: ct-anim 0.3s ease 1;
-} @keyframes ct-anim {
-	0% {transform: scale(0.9); opacity: 0;}
-	100% {transform: scale(1); opacity: 1;}
 }
+
+@keyframes ct-anim {
+	0% {
+		transform: scale(0.9);
+		opacity: 0;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
 .for-blur {
-	width: 100%;
-	height: 100%;
 	background: rgba(255, 255, 255, 0.5);
 	border-radius: 10px;
 	backdrop-filter: blur(10px);
-	position: absolute;
-	top: 0; left: 0;
-	z-index: -1;
 }
 
 .bg-img {
@@ -88,10 +93,10 @@ break {
 }
 
 .levels {
-    font-size: x-large;
-    margin-left: 23px;
-    display: flex;
-    align-items: center;
+	font-size: x-large;
+	margin-left: 23px;
+	display: flex;
+	align-items: center;
 	color: white;
 }
 
@@ -100,8 +105,10 @@ break {
 	height: 50px;
 	transform: scale(1.2);
 	opacity: 0;
-} .back-img:active {
-	transform: scale(.9)!important;
+}
+
+.back-img:active {
+	transform: scale(.9) !important;
 }
 
 .coins {
@@ -179,27 +186,33 @@ break {
 	z-index: 1;
 	display: none;
 }
+
 .play-aud {
 	visibility: hidden;
 }
+
 .loading-txt {
 	position: absolute;
-	top: 50%; left: 50%;
-	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	color: #536fed;
 	z-index: 0;
 }
+
 .sound-img {
 	width: 50px;
 	height: 50px;
 	padding: 20px;
-	background: rgb(247,247,247);
-	background: linear-gradient(90deg, rgba(247,247,247,1) 0%, rgba(227,227,227,1) 100%);
+	background: rgb(247, 247, 247);
+	background: linear-gradient(90deg, rgba(247, 247, 247, 1) 0%, rgba(227, 227, 227, 1) 100%);
 	border-radius: 15px;
 	box-shadow: 3px 5px 2px rgba(0, 0, 0, .4);
-} .sound-img:active {
+}
+
+.sound-img:active {
 	transform: translate(2px, 2px);
-	box-shadow:inset 3px 5px 2px rgba(0, 0, 0, .4);
+	box-shadow: inset 3px 5px 2px rgba(0, 0, 0, .4);
 	opacity: .8;
 }
 
@@ -270,10 +283,11 @@ break {
 	border-radius: 10px;
 	background-color: white;
 	color: #062737;
-	box-shadow:  0 0 5px rgba(0, 0, 0, 0.241);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.241);
 	transition: all .4s ease;
 	animation: intro .4s ease-in 1;
 }
+
 .empty-ct {
 	width: 7vw;
 	max-width: 35px;
@@ -298,6 +312,7 @@ break {
 		opacity: 1;
 	}
 }
+
 .disclaimer-txt {
 	position: absolute;
 	top: 10px;
@@ -307,7 +322,9 @@ break {
 	color: white;
 	text-decoration: underline dotted white;
 	z-index: 10;
-} .disclaimer-txt:active {
+}
+
+.disclaimer-txt:active {
 	opacity: .6;
 }
 
@@ -432,7 +449,7 @@ break {
 
 .tool-bg {
 	width: 100%;
-	margin: 2vh 0vh;
+	margin: 2px 0vh;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -441,14 +458,17 @@ break {
 	transition: all 400ms ease;
 }
 
-.hint, .skip-img {
+.hint,
+.skip-img {
 	width: 14vw;
 	height: 14vw;
 	background-color: white;
 	border-radius: 10px;
 	max-width: 80px;
 	max-height: 80px;
-} .skip-img:active {
+}
+
+.skip-img:active {
 	transform: scale(.9);
 }
 
@@ -573,7 +593,8 @@ break {
 	left: 0;
 	z-index: 16;
 	background-color: rgba(0, 0, 0, .3);
-	display: none; flex-wrap: wrap;
+	display: none;
+	flex-wrap: wrap;
 	animation: buy-coins-bg 400ms linear 1;
 }
 
