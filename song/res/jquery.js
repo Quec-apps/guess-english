@@ -14,7 +14,7 @@ setTimeout(() => { $(".tool-bg").css({ transform: 'scale(1)', opacity: '1' }); }
 function Outro() {
 	setTimeout(() => {
 		$(".game-over-con").fadeOut();
-		$(".ct-full .for-blur").css({background:'transparent'});
+		$(".ct-full .for-blur").css({ background: 'transparent' });
 		$(".game-over").css({ transform: 'scale(1.2)', opacity: '0' });
 		$('.levels, .coins').css({ transform: 'scale(1.2)', opacity: '0' });
 	}, 100);
@@ -54,7 +54,7 @@ $(document).ready(function () {
 	function Append() {
 		$('.play-aud').css({ visibility: 'hidden' });
 		$('.playing-bg').fadeOut();
-		$('.loading-bg').css({display:'flex'});
+		$('.loading-bg').css({ display: 'flex' });
 
 		interact = true;
 		$("#main-levels").text(levels);
@@ -63,7 +63,7 @@ $(document).ready(function () {
 		$("#noans2").text(window[`q2${levels}`]);
 		$("#noans3").text(window[`q3${levels}`]);
 		$("#noans4").text(window[`q4${levels}`]);
-		
+
 		$(".main-img").attr('src', `audio/${levels}.mp3`);
 		setTimeout(() => {
 			$("#ans-txt").html(window[`ans${levels}`]);
@@ -96,23 +96,30 @@ $(document).ready(function () {
 	window.onload = function () {
 		audio = document.getElementById("main-aud");
 	};
-	
+
+	firstRun = true;
 	$(".sound-img").click(function () {
 		var files = this.files;
 		// audio.src = URL.createObjectURL(files[0]);
 		audio.load();
 		audio.play();
 		var context = new AudioContext();
-		var src = context.createMediaElementSource(audio);
-		var analyser = context.createAnalyser();
+
+
+		if (firstRun) {
+			firstRun = false;
+			src = context.createMediaElementSource(audio);
+			analyser = context.createAnalyser();
+			src.connect(analyser);
+			analyser.connect(context.destination);
+		}
 
 		var canvas = document.getElementById("canvas");
 		// canvas.width = window.innerWidth;
 		// canvas.height = window.innerHeight;
 		var ctx = canvas.getContext("2d");
 
-		src.connect(analyser);
-		analyser.connect(context.destination);
+
 
 		analyser.fftSize = 256;
 
@@ -154,7 +161,6 @@ $(document).ready(function () {
 
 		audio.play();
 		renderFrame();
-		// document.getElementById("main-aud").play();
 	});
 
 	$("#main-aud").on("ended", function () {
@@ -183,7 +189,7 @@ $(document).ready(function () {
 			$('.levels, .coins').css({ transform: 'scale(1.2)', opacity: '0' });
 		}, 100);
 		setTimeout(() => {
-			$('.score2').css({visibility:'hidden'});
+			$('.score2').css({ visibility: 'hidden' });
 			$(".finish-con").fadeOut();
 			$(".game-over").css({ transform: 'scale(1)', opacity: '1' });
 			$('.levels, .coins').css({ transform: 'scale(1)', opacity: '1' });
@@ -303,7 +309,7 @@ $(document).ready(function () {
 		setTimeout(() => {
 			if (giveReward == 1) {
 				//give one coin
-				$('.score2').css({visibility:'visible'});
+				$('.score2').css({ visibility: 'visible' });
 				coins++; localStorage.setItem("engCoins", coins);
 				$("#coins").html(coins);
 			}
