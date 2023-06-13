@@ -295,60 +295,17 @@
 	</div>
 
 	<div class="ct-bg">
-		<!-- <div class="ct-hold ct-hold1">
-			<div class="ct ct1" style="width:65%">
-				<img src="res/movie2.png" class="ct-main-img">
-				<div class="ct-txt">MOVIE</div>
-				<div class="score"><span id="levels">0</span></div>
-				<div class="newAdded"><span id="newLevel"></span> new levels added</div>
-			</div>
-			<div class="online-bg" id="movieOnline">
-				<div class="online-txt">PLAY ONLINE</div>
-				<div class="rating-img-bg">
-					<img src="res/rating.svg" class="rating-img">
-					<div class="rating-txt" id="movie-rate"></div>
-				</div>
-			</div>
-		</div> -->
-
-
-		<!-- <img src="res/ad/anime640x100.png" class="ad-bg"> -->
-
-		<!-- <div class="ct-hold ct-hold2">
-			<div class="ct ct2">
-				<style>
-					.new-badge {
-						position: absolute;
-						top: 14px;
-						left: 78%;
-						width: 29%;
-						height: 30px;
-						transform: rotate(45deg);
-						background-color: aqua;
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						color: #3c0202;
-					}
-				</style>
-				<div class="new-badge">NEW</div>
-				<img src="res/actor2.png" class="ct-main-img">
-				<div class="ct-txt">ACTOR/ACTRESS</div>
-				<div class="score"><span id="actor-level">0</span></div>
-			</div>
-			 <div class="online-bg">
-				<div class="online-txt">PLAY ONLINE</div>
-				<div class="rating-img-bg">
-					<img src="res/rating.svg" class="rating-img">
-					<div class="rating-txt">1</div>
-				</div>
-			</div>
-		</div> -->
 
 		<div class="ct ct3 for-blur">
 			<img src="res/image/song.webp" class="ct-main-img">
 			<div class="ct-txt">Songs</div>
 			<div class="score"><span id="song-level">0</span></div>
+		</div>
+
+		<div class="ct ct1 for-blur">
+			<img src="res/image/movie.webp" class="ct-main-img">
+			<div class="ct-txt">Hollywood Movies</div>
+			<div class="score"><span id="holly_mov_levels">0</span></div>
 		</div>
 
 		<style>
@@ -433,21 +390,10 @@
 
 	</div><!--ct-bg closed-->
 
-
-	<div class="ad-full">
-		<div class="ad-full-bg">
-			<img src="res/ad/animesqr.png" class="ad-full-img">
-			<div class="ad-btn">
-				<div class="ad-full-install">INSTALL</div>
-				<div class="ad-full-install">CLOSE</div>
-			</div>
-		</div>
-
-	</div>
-
 	<audio id="button2" src="res/audio/button2.mp3"></audio>
 	<div class="toast"></div>
 	<script src="song/res/song.js"></script>
+	<script src="movie/movie.js"></script>
 	<script>
 		setTimeout(function () { $('.coffee-img, .coins, .feedback, .special-bg').css({ opacity: '1' }); }, 200);
 		setTimeout(function () { $('.ct1').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 100);
@@ -463,14 +409,6 @@
 			toastTimer = setTimeout(() => { $(".toast").fadeOut(); }, 3000);
 		}
 
-		if (localStorage.actorLevel == null) {
-			actorLevel = 1;
-			localStorage.actorLevel = actorLevel;
-		}
-		actorLevel = parseInt(localStorage.actorLevel);
-		console.log(actorLevel)
-		$("#actor-level").html(actorLevel);
-
 		if (localStorage.engSongLevel == null) {
 			engSongLevel = 1;
 			localStorage.engSongLevel = engSongLevel;
@@ -478,12 +416,6 @@
 		engSongLevel = parseInt(localStorage.engSongLevel);
 		console.log(engSongLevel)
 		$("#song-level").html(engSongLevel);
-
-		if (localStorage.mal_movie_xp == null) {
-			localStorage.mal_movie_xp = 0;
-		}
-		mal_movie_xp = localStorage.mal_movie_xp;
-		$('#movie-rate').text(Math.trunc(mal_movie_xp / 15));
 
 		// adVar = Math.floor(Math.random() * 4 + 1);
 		// $(".ad-bg").attr("src", "res/ad/" + adVar + ".png");
@@ -503,13 +435,6 @@
 			setTimeout(function () { $('.ct4, .ct-hold4').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 400);
 			setTimeout(function () { $('.ct5, .ct-hold5').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 500);
 		}
-
-		localStorage.removeItem("ad");
-		newdate = new Date();
-		newdateobj = newdate.getDate();
-		window.localStorage.setItem("newdateobj", newdateobj);
-		newdateobj = localStorage.getItem("newdateobj");
-		olddateobj = localStorage.getItem("olddateobj");
 
 
 		if (localStorage.getItem("reward") === null) {
@@ -540,41 +465,26 @@
 			setTimeout(() => { parent.location = "get_coins.html"; }, 700);
 		});
 
-		// var levels = parseInt(localStorage.getItem("levels"));
-		// if (localStorage.getItem("levels") === null) {
-		// 	levels = 1;
-		// 	document.getElementById("levels").innerHTML = "1";
-		// 	parseInt(localStorage.setItem("levels", levels));
-		// } else { document.getElementById("levels").innerHTML = levels; }
+		holly_mov_levels = parseInt(localStorage.getItem("holly_mov_levels"));
+		if (localStorage.getItem("holly_mov_levels") == null) {
+			holly_mov_levels = 1;
+			document.getElementById("holly_mov_levels").innerHTML = "1";
+			parseInt(localStorage.setItem("holly_mov_levels", holly_mov_levels));
+		} else { document.getElementById("holly_mov_levels").innerHTML = holly_mov_levels; }
 
-		// $('.ct1').click(function () {
-		// 	if (levels <= levelTotal) {
-		// 		setTimeout(function () {
-		// 			parent.location = 'movie/movie.html';
-		// 		}, 700);
-		// 	} else {
-		// 		setTimeout(function () {
-		// 			parent.location = 'wait_update.html';
-		// 		}, 600);
-		// 	}
-		// });
-		// console.log(actorLevel);
-		// console.log(actorLevelTotal);
+		$('.ct1').click(function () {
+			if (holly_mov_levels <= holly_mov_levelTotal) {
+				setTimeout(function () {
+					parent.location = 'movie/movie.html';
+				}, 700);
+			} else {
+				setTimeout(function () {
+					parent.location = 'wait_update.html';
+				}, 600);
+			}
+		});
 
-		// $(".ct2").click(function () {
-		// 	if (actorLevel <= actorLevelTotal) {
-		// 		setTimeout(function () {
-		// 			parent.location = 'actor/html/actor_content.html';
-		// 		}, 700);
-		// 	} else {
-		// 		setTimeout(function () {
-		// 			parent.location = 'wait_update.html';
-		// 		}, 600);
-		// 	}
-		// });
 		$(".ct3").click(function () {
-			console.log('engSongLevel', engSongLevel)
-			console.log('engSongLevels_total', engSongLevelTotal)
 			if (engSongLevel <= engSongLevelTotal) {
 				setTimeout(function () {
 					parent.location = 'song/song_content.html';
