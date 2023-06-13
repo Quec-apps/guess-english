@@ -159,7 +159,7 @@ break {
 
 .main-img-bg {
 	width: 90%;
-	height: 20vh;
+	height: 28vh;
 	position: relative;
 	margin-left: 5vw;
 	padding: 1vh 0vh;
@@ -202,12 +202,12 @@ break {
 
 .sound-img {
 	width: 40px;
-    height: 40px;
-    padding: 15px;
-    background: rgb(247, 247, 247);
-    background: linear-gradient(90deg, rgba(247, 247, 247, 1) 0%, rgba(227, 227, 227, 1) 100%);
-    border-radius: 15px;
-    box-shadow: 3px 5px 2px rgba(0, 0, 0, .4);
+	height: 40px;
+	padding: 15px;
+	background: rgb(247, 247, 247);
+	background: linear-gradient(90deg, rgba(247, 247, 247, 1) 0%, rgba(227, 227, 227, 1) 100%);
+	border-radius: 15px;
+	box-shadow: 3px 5px 2px rgba(0, 0, 0, .4);
 }
 
 .sound-img:active {
@@ -253,19 +253,20 @@ break {
 
 .letter-ct {
 	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	text-transform: uppercase;
-	width: 20px;
-	height: 20px;
-	padding: 20px 20px;
-	font-size: x-large;
-	text-align: center;
-	border-radius: 10px;
-	background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
-	color: white;
-	box-shadow: 0px 0px 7px #00000024;
-	margin: 1vw;
+    justify-content: space-around;
+    align-items: center;
+    text-transform: uppercase;
+    width: 10px;
+    height: 10px;
+    padding: 15px 15px;
+    font-size: larger;
+    text-align: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(10px);
+    color: white;
+    box-shadow: 0px 0px 7px #00000024;
+    margin: 5px;
 }
 
 .answer-ct {
@@ -279,7 +280,7 @@ break {
 	max-height: 35px;
 	padding: 0vw 0vw;
 	margin: 1vw .3vw;
-	font-size: larger;
+	font-size: large;
 	border-radius: 10px;
 	background-color: white;
 	color: #062737;
@@ -351,6 +352,7 @@ break {
 	max-width: 500px;
 	padding: 20px;
 	background-color: rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(10px);
 	border-radius: 3vw;
 	animation: out-coins 400ms ease 1;
 	transition: all 400ms ease;
@@ -414,8 +416,8 @@ break {
 }
 
 .button {
-	width: 55px;
-	height: 55px;
+	width: 40px;
+	height: 40px;
 	background-color: white;
 	border-radius: 10px;
 	padding: 5px 5px;
@@ -529,7 +531,7 @@ break {
 	padding: 4vw;
 	width: 70vw;
 	background: rgba(255, 255, 255, 0.5);
-	border-radius: 3vw;
+	backdrop-filter: blur(10px);
 	border-radius: 10px;
 	animation: out-coins 400ms ease 1;
 	transition: all 400ms ease;
