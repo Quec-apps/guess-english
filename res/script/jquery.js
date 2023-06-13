@@ -1,12 +1,12 @@
 var whiteSpace = 0;
 
-levels = localStorage.getItem("tamilMovieLevel");
-total = parseInt(levelTotal);
+levels = localStorage.getItem("holly_mov_levels");
+total = parseInt(holly_mov_levelTotal);
 
 typedAns = '';
 typedAnsNumbers = [];
 
-var coins = localStorage.getItem("tamilCoins");
+var coins = localStorage.getItem("engCoins");
 $('#coins').text(coins);
 
 function AnsPlus() {
@@ -16,7 +16,7 @@ var FullImage = 0;
 
 function Levelfunct() {
 	levels++;
-	localStorage.setItem("tamilMovieLevel", levels);
+	localStorage.setItem("holly_mov_levels", levels);
 }
 
 $('.next').click(function () {
@@ -71,7 +71,7 @@ if (FullImage == 0) {
 function Retryminus() {
 	if (coins >= 1) {
 		coins--;
-		localStorage.setItem("tamilCoins", coins);
+		localStorage.setItem("engCoins", coins);
 		document.getElementById("coins").innerHTML = coins;
 	}
 }
@@ -89,7 +89,7 @@ MainShuffle();
 
 function LevelNext() {
 	coins++;
-	localStorage.aCoins = coins;
+	localStorage.engCoins = coins;
 	$("#coins").text(coins);
 }
 $("#coin-txt").text('+1');
@@ -127,10 +127,10 @@ $(document).ready(function () {
 		} else {
 			typedAns = '';
 			typedAnsNumbers = [];
-			hint = 0; localStorage.setItem("actorHint", hint);
+			hint = 0; localStorage.setItem("holly_movie_Hint", hint);
 			document.getElementById("win").play();
 			coins-=10;
-			localStorage.setItem("tamilCoins", coins);
+			localStorage.setItem("engCoins", coins);
 			$("#coins").html(coins);
 			$('.finish-con').css({ display: 'flex' });
 			$('.score2').fadeOut(0);
@@ -156,7 +156,7 @@ $(document).ready(function () {
 
 	$('.btn1').click(function () {
 		setInterval(() => {
-			coins = localStorage.getItem("tamilCoins");
+			coins = localStorage.getItem("engCoins");
 			$("#coins").html(coins);
 		}, 2000);
 		$(".buy-coins-con").fadeIn();
@@ -263,10 +263,10 @@ function AppenAll() {
 		}
 	}
 
-	if (localStorage.getItem("actorHint") == null) {
-		hint = 0; localStorage.setItem("actorHint", hint);
+	if (localStorage.getItem("holly_movie_Hint") == null) {
+		hint = 0; localStorage.setItem("holly_movie_Hint", hint);
 	} else {
-		hint = parseInt(localStorage.getItem("actorHint"));
+		hint = parseInt(localStorage.getItem("holly_movie_Hint"));
 	}
 
 	
@@ -443,7 +443,7 @@ function finalCheck() {
 	setTimeout(() => {
 		if (totaldigit == full2Ans.length + 1) {
 			if (typedAns == full2Ans) {
-				hint = 0; localStorage.setItem("actorHint", hint);
+				hint = 0; localStorage.setItem("holly_movie_Hint", hint);
 				Levelfunct();
 				$('.finish-con').css({ display: 'flex' });
 				document.getElementById("finish").play();
@@ -453,7 +453,7 @@ function finalCheck() {
 				document.getElementById("over").play();
 				if (coins > 0) {coins--;}
 			}
-			localStorage.aCoins = coins;
+			localStorage.engCoins = coins;
 			$("#coins").html(coins);
 		}
 	}, 200);
@@ -470,7 +470,7 @@ $('.show-hint').click(function () {
 		$('.out-coins-con').css({ display: 'flex' });
 	} else {
 		document.getElementById("hint").play();
-		hint++; localStorage.setItem("actorHint", hint);
+		hint++; localStorage.setItem("holly_movie_Hint", hint);
 		$("#ans-ct" + hint).css({backgroundColor:'green', color:'white'});
 		$("#ct"+hint).css({visibility:'hidden'});
 		//check if showing hint is empty
@@ -502,7 +502,7 @@ $('.show-hint').click(function () {
 		$("#ans" + hint).html(window["ct" + hint]);
 		// typedAns = replaceAt(typedAns, (hint-1), full2Ans[hint-1]);
 		console.log('typedAns',typedAns)
-		coins--; localStorage.setItem("tamilCoins", coins);
+		coins--; localStorage.setItem("engCoins", coins);
 		$("#coins").html(coins);
 
 		if (hint == full2Ans.length - 2) {
