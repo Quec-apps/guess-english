@@ -308,6 +308,12 @@
 			<div class="score"><span id="holly_mov_levels">0</span></div>
 		</div>
 
+		<div class="ct ct2 for-blur">
+			<img src="res/image/anim.webp" class="ct-main-img">
+			<div class="ct-txt">Animation Movies</div>
+			<div class="score"><span id="anim_mov_levels">0</span></div>
+		</div>
+
 		<style>
 			.ad-bg {
 				width: 98vw;
@@ -394,6 +400,7 @@
 	<div class="toast"></div>
 	<script src="song/res/song.js"></script>
 	<script src="movie/movie.js"></script>
+	<script src="anim/anim.js"></script>
 	<script>
 		setTimeout(function () { $('.coffee-img, .coins, .feedback, .special-bg').css({ opacity: '1' }); }, 200);
 		setTimeout(function () { $('.ct1').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 100);
@@ -416,6 +423,14 @@
 		engSongLevel = parseInt(localStorage.engSongLevel);
 		console.log(engSongLevel)
 		$("#song-level").html(engSongLevel);
+
+		if (localStorage.engAnimLevel == null) {
+			engAnimLevel = 1;
+			localStorage.engAnimLevel = engAnimLevel;
+		}
+		engAnimLevel = parseInt(localStorage.engAnimLevel);
+		console.log(engAnimLevel)
+		$("#anim_mov_levels").html(engAnimLevel);
 
 		// adVar = Math.floor(Math.random() * 4 + 1);
 		// $(".ad-bg").attr("src", "res/ad/" + adVar + ".png");
@@ -488,6 +503,18 @@
 			if (engSongLevel <= engSongLevelTotal) {
 				setTimeout(function () {
 					parent.location = 'song/song_content.html';
+				}, 700);
+			} else {
+				setTimeout(function () {
+					parent.location = 'wait_update.html';
+				}, 600);
+			}
+		});
+
+		$(".ct2").click(function () {
+			if (engAnimLevel <= engAnimLevelTotal) {
+				setTimeout(function () {
+					parent.location = 'anim/anim.html';
 				}, 700);
 			} else {
 				setTimeout(function () {
