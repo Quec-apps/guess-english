@@ -156,6 +156,7 @@
 		.ct-txt {
 			width: 100%;
 			text-align: center;
+			padding-left: 55px;
 			font-size: large;
 			position: relative;
 		}
@@ -163,7 +164,7 @@
 		.score {
 			width: 100%;
 			text-align: center;
-			/* padding-top: 4vw; */
+			padding-left: 55px;
 			font-size: x-large;
 			position: relative;
 		}
@@ -314,6 +315,12 @@
 			<div class="score"><span id="anim_mov_levels">0</span></div>
 		</div>
 
+		<div class="ct ct4 for-blur">
+			<img src="res/image/minion.webp" class="ct-main-img">
+			<div class="ct-txt">Animation Character</div>
+			<div class="score"><span id="char_levels">0</span></div>
+		</div>
+
 		<style>
 			.ad-bg {
 				width: 98vw;
@@ -401,6 +408,7 @@
 	<script src="song/res/song.js"></script>
 	<script src="movie/movie.js"></script>
 	<script src="anim/anim.js"></script>
+	<script src="char/res/char.js"></script>
 	<script>
 		setTimeout(function () { $('.coffee-img, .coins, .feedback, .special-bg').css({ opacity: '1' }); }, 200);
 		setTimeout(function () { $('.ct1').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 100);
@@ -431,6 +439,14 @@
 		engAnimLevel = parseInt(localStorage.engAnimLevel);
 		console.log(engAnimLevel)
 		$("#anim_mov_levels").html(engAnimLevel);
+
+		if (localStorage.engCharLevel == null) {
+			engCharLevel = 1;
+			localStorage.engCharLevel = engCharLevel;
+		}
+		engCharLevel = parseInt(localStorage.engCharLevel);
+		console.log(engCharLevel)
+		$("#char_levels").html(engCharLevel);
 
 		// adVar = Math.floor(Math.random() * 4 + 1);
 		// $(".ad-bg").attr("src", "res/ad/" + adVar + ".png");
@@ -515,6 +531,18 @@
 			if (engAnimLevel <= engAnimLevelTotal) {
 				setTimeout(function () {
 					parent.location = 'anim/anim.html';
+				}, 700);
+			} else {
+				setTimeout(function () {
+					parent.location = 'wait_update.html';
+				}, 600);
+			}
+		});
+
+		$(".ct4").click(function () {
+			if (engCharLevel <= engCharLevelTotal) {
+				setTimeout(function () {
+					parent.location = 'char/char_content.html';
 				}, 700);
 			} else {
 				setTimeout(function () {
