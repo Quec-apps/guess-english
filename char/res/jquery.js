@@ -72,7 +72,7 @@ $(document).ready(function () {
 		}, 400);
 
 		$(".option").css({
-			background: 'rgba(255, 255, 255, .5)'
+			backgroundImage: 'linear-gradient(to right top, #8a61ff, #885eff, #865aff, #8357ff, #8153ff)'
 		});
 
 		MainShuffle();
@@ -112,7 +112,7 @@ $(document).ready(function () {
 	$('.retry').click(function () {
 		interact = true;
 		$(".option").css({
-			background: 'rgba(255, 255, 255, .5)'
+			backgroundImage: 'linear-gradient(to right top, #8a61ff, #885eff, #865aff, #8357ff, #8153ff)'
 		});
 		setTimeout(() => { $(".game-over").css({ transform: 'scale(1.2)', opacity: '0' }); }, 100);
 		$('.game-over-con').fadeOut();
