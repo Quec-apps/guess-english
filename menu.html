@@ -20,11 +20,11 @@
 			width: 100vw;
 			height: 100vh;
 			overflow: hidden;
-			background: radial-gradient(65% 100% at 50% 0%, #18005B 0%, #000000 100%), radial-gradient(circle at 30% 45%, #FF0000 0%, #FF0000 5%, #FFFF00 5%, #FFFF00 10%, #00FF00 10%, #00FF00 15%, #00FFFF 15%, #00FFFF 20%, #0000FF 20%, #0000FF 30%, #FF00FF 30%, #FF00FF 40%, #FF0000 40%), radial-gradient(circle at 50% 0%, #FF0000 0%, #FF0000 5%, #FFFF00 5%, #FFFF00 10%, #00FF00 10%, #00FF00 20%, #00FFFF 20%, #00FFFF 30%, #0000FF 30%, #0000FF 40%, #FF00FF 40%, #FF00FF 50%, #FF0000 50%), conic-gradient(from 15deg at 20% 420%, #FF0000 0deg, #FF0000 55deg, #FFFF00 60deg, #FFFF00 120deg, #00FF00 120deg, #00FF00 180deg, #00FFFF 180deg, #00FFFF 240deg, #0000FF 240deg, #0000FF 300deg, #FF00FF 310deg, #FF00FF 360deg, #FF0000 360deg);
+			background: #fff;
 			background-blend-mode: screen, multiply, multiply, normal;
 			font-family: Rubik;
-			font-weight: 1000;
-			color: #000000;
+			font-weight: 100;
+			color: #453e55;
 			user-select: none;
 			-webkit-user-select: none;
 			-khtml-user-select: none;
@@ -116,21 +116,14 @@
 			flex-wrap: wrap;
 			justify-content: center;
 			align-content: center;
-			/* margin-top: 2vh; */
 			transform: scale(1.2);
 			opacity: 0;
 			transition: all 350ms ease;
 			position: relative;
 			color: white;
-			/* background: rgba(255, 255, 255, 0.5); */
+			background-image: linear-gradient(to right top, #8a61ff, #885eff, #865aff, #8357ff, #8153ff);
 			overflow: hidden;
-			/* box-shadow: 0px 0px 18px rgba(0, 0, 0, .3); */
-		}
-
-		.for-blur {
-			background: rgba(255, 255, 255, 0.5);
-			border-radius: 10px;
-			backdrop-filter: blur(10px);
+			box-shadow: 0px 0px 6px rgb(84 57 160 / 24%);
 		}
 
 		.ct:active {
@@ -207,10 +200,9 @@
 		}
 
 		#coins {
-			width: 15vw;
+			width: 50px;
 			font-size: x-large;
 			transform: translateX(1.8vw);
-			color: white;
 		}
 
 		.special-bg {
@@ -282,7 +274,7 @@
 
 <body>
 	<div class="mid">
-		<div class="coins for-blur">
+		<div class="coins">
 			<img src="res/image/coins.webp" class="coins-img">
 			<div id="coins">0</div>
 			<img src="res/image/add.webp" class="add-img">
@@ -297,25 +289,25 @@
 
 	<div class="ct-bg">
 
-		<div class="ct ct3 for-blur">
+		<div class="ct ct3">
 			<img src="res/image/song.webp" class="ct-main-img">
 			<div class="ct-txt">Songs</div>
 			<div class="score"><span id="song-level">0</span></div>
 		</div>
 
-		<div class="ct ct1 for-blur">
+		<div class="ct ct1">
 			<img src="res/image/movie.webp" class="ct-main-img">
 			<div class="ct-txt">Hollywood Movies</div>
 			<div class="score"><span id="holly_mov_levels">0</span></div>
 		</div>
 
-		<div class="ct ct2 for-blur">
+		<div class="ct ct2">
 			<img src="res/image/anim.webp" class="ct-main-img">
 			<div class="ct-txt">Animation Movies</div>
 			<div class="score"><span id="anim_mov_levels">0</span></div>
 		</div>
 
-		<div class="ct ct4 for-blur">
+		<div class="ct ct4">
 			<img src="res/image/minion.webp" class="ct-main-img">
 			<div class="ct-txt">Animation Character</div>
 			<div class="score"><span id="char_levels">0</span></div>
@@ -338,7 +330,7 @@
 
 			.rate-bg {
 				width: 85vw;
-				/* background: rgba(255, 255, 255, 0.5); */
+				background-image: linear-gradient(to right top, #8a61ff, #885eff, #865aff, #8357ff, #8153ff);
 				border-radius: 10px;
 				text-align: center;
 				padding: 2vh 0;
@@ -397,7 +389,7 @@
 				opacity: .4;
 			}
 		</style>
-		<div class="rate-bg for-blur">
+		<div class="rate-bg">
 			Rate us on Google play store
 		</div>
 

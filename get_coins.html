@@ -22,20 +22,15 @@
             width: 100vw;
             height: 100vh;
             overflow: hidden;
-            background: radial-gradient(65% 100% at 50% 0%, #18005B 0%, #000000 100%), radial-gradient(circle at 30% 45%, #FF0000 0%, #FF0000 5%, #FFFF00 5%, #FFFF00 10%, #00FF00 10%, #00FF00 15%, #00FFFF 15%, #00FFFF 20%, #0000FF 20%, #0000FF 30%, #FF00FF 30%, #FF00FF 40%, #FF0000 40%), radial-gradient(circle at 50% 0%, #FF0000 0%, #FF0000 5%, #FFFF00 5%, #FFFF00 10%, #00FF00 10%, #00FF00 20%, #00FFFF 20%, #00FFFF 30%, #0000FF 30%, #0000FF 40%, #FF00FF 40%, #FF00FF 50%, #FF0000 50%), conic-gradient(from 15deg at 20% 420%, #FF0000 0deg, #FF0000 55deg, #FFFF00 60deg, #FFFF00 120deg, #00FF00 120deg, #00FF00 180deg, #00FFFF 180deg, #00FFFF 240deg, #0000FF 240deg, #0000FF 300deg, #FF00FF 310deg, #FF00FF 360deg, #FF0000 360deg);
-            background-blend-mode: screen, multiply, multiply, normal;
+            background: #fff;
+            color: #453e55;
             margin: 0;
             font-family: Rubik;
             user-select: none;
-            /* supported by Chrome and Opera */
             -webkit-user-select: none;
-            /* Safari */
             -khtml-user-select: none;
-            /* Konqueror HTML */
             -moz-user-select: none;
-            /* Firefox */
             -ms-user-select: none;
-            /* Internet Explorer/Edge */
         }
 
         .top {
@@ -109,7 +104,7 @@
 <body>
     <div class="top">
         <img src="res/image/back.webp" class="back-img active">
-        <div class="coins for-blur">
+        <div class="coins">
             <img src="res/image/coins.webp" class="coins-img">
             <div id="coins">3</div>
         </div>
@@ -119,18 +114,13 @@
             width: 90vw;
             max-width: 600px;
             margin-top: 15px;
+            background: linear-gradient(to right top, #8a61ff, #885eff, #865aff, #8357ff, #8153ff);
             padding: 10px 0;
             border-radius: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
-        }
-
-        .for-blur {
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
         }
 
         .ct-sub-bg {
@@ -178,21 +168,21 @@
         }
     </style>
     <div class="bottom">
-        <div class="ct ct1" style="display:none;">
+        <div class="ct ct1" style="display: none;">
             <div class="ct-sub-bg">
                 <img src="res/image/coins.webp" class="hint-img"> + 5
             </div>
             <div class="buy free active"><img src="res/image/video.webp" class="video-img"> Free</div>
         </div>
 
-        <div class="ct ct2 for-blur">
+        <div class="ct ct2">
             <div class="ct-sub-bg">
                 <img src="res/image/coins.webp" class="hint-img"> + 50
             </div>
             <div class="buy buy1 active">Buy</div>
         </div>
 
-        <div class="ct ct3 for-blur">
+        <div class="ct ct3">
             <div class="ct-sub-bg">
                 <img src="res/image/coins.webp" class="hint-img"> + 100
             </div>
@@ -201,7 +191,7 @@
             </div>
         </div>
 
-        <div class="ct ct4 for-blur">
+        <div class="ct ct4">
             <div class="ct-sub-bg">
                 <img src="res/image/coins.webp" class="hint-img"> + 150
             </div>
@@ -222,11 +212,10 @@
             .divider-bar {
                 width: 20%;
                 height: 1px;
-                background-color: white;
+                background-color: #453e55;
             }
 
             .divider-ct {
-                color: white;
                 margin: 0 10px;
             }
 
@@ -252,7 +241,7 @@
             <div class="divider-ct">More apps</div>
             <div class="divider-bar"></div>
         </div>
-        <div class="ct ct4 for-blur">
+        <div class="ct ct4">
             <img src="res/image/app/anime.png" class="app-img">
             <div class="app-name">Guess Anime</div>
             <div class="buy active">
@@ -261,7 +250,7 @@
                     Install</div>
             </div>
         </div>
-        <div class="ct ct4 for-blur">
+        <div class="ct ct4">
             <img src="res/image/app/bollywood.png" class="app-img">
             <div class="app-name">Guess Bollywood Movie</div>
             <div class="buy active">
@@ -270,12 +259,21 @@
                     Install</div>
             </div>
         </div>
-        <div class="ct ct4 for-blur">
+        <div class="ct ct4">
             <img src="res/image/app/tamil.png" class="app-img">
             <div class="app-name">Guess Tamil Movie</div>
             <div class="buy active">
                 <div class="buy-ct"
                     onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.guess.tamil`'>
+                    Install</div>
+            </div>
+        </div>
+        <div class="ct ct5">
+            <img src="res/image/app/malayalam.png" class="app-img">
+            <div class="app-name">Guess Malayalam Movie</div>
+            <div class="buy active">
+                <div class="buy-ct"
+                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.guess.malayalam`'>
                     Install</div>
             </div>
         </div>
